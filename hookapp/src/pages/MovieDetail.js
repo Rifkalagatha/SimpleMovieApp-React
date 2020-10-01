@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 function MovieDetail() {
     const dispatch = useDispatch()
     const { id } = useParams()
-    const moviesDetail = useSelector(state => state.movieDetail)
-    const favorite = useSelector(state => state.favorite)
-    const loading = useSelector(state => state.loading)
-    const error = useSelector(state => state.error)
+    const moviesDetail = useSelector(state => state.movieDetail.data)
+    const favorite = useSelector(state => state.favorite.data)
+    const loading = useSelector(state => state.movieDetail.loading)
+    const error = useSelector(state => state.movieDetail.error)
 
 
     useEffect(() => {

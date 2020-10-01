@@ -9,12 +9,17 @@ import { changeSearch, getMovies } from '../store/action'
 
 function Home() {
     // const name = useSelector(state => state.name)
-    const movies = useSelector(state => state.movies)
-    const search = useSelector(state => state.search)
-    const loading = useSelector(state => state.loading)
-    const error = useSelector(state => state.error)
+    const data = useSelector(state => state)
+    const movies = useSelector(state => state.movies.data)
+    const search = useSelector(state => state.search.data)
+    const loading = useSelector(state => state.movies.loading)
+    const error = useSelector(state => state.movies.error)
     const [temp, setTemp] = useState('')
     const dispatch = useDispatch()
+
+    console.log(movies, 'ini movie')
+    console.log(search)
+    console.log(data, 'ini data')
 
     
     useEffect(() => {

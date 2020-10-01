@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import FavoriteContainer from '../components/favoriteContainer'
 
 function Favorite() {
-    const favorite = useSelector(state => state.favorite)
+    const favorite = useSelector(state => state.favorite.data)
     // console.log(favorite)
     return (
         
