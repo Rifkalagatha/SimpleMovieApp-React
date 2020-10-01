@@ -1,0 +1,6 @@
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+export const CHANGE_SEARCH = 'CHANGE_SEARCH'
+export const SET_MOVIE = 'SET_MOVIE'
+export const SET_MOVIE_DETAIL = 'SET_MOVIE_DETAIL'
+export const SET_LOADING = 'SET_LOADING'
+export const SET_ERROR = 'SET_ERROR'

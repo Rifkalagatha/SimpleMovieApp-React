@@ -16,6 +16,9 @@ function Navbar() {
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <Link class="nav-link" to='/'>Home</Link>
+                        </li>  
+                        <li class="nav-item active">
+                            <Link class="nav-link" to='/favorite'>Favorite</Link>
                         </li>
                         <li class="nav-item active">
                             <Link class="nav-link" to='/about'>About</Link>

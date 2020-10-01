@@ -1,9 +1,15 @@
 import React from 'react'
 
-function About () {
+function About() {
     return (
-        <div>
-            ini about
+        <div class='d-flex justify-content-center mt-5'>
+            <div class='card shadow'>
+                <div class='card-body'>
+                    <h5 class="card-title">Hanya About</h5>
+                </div>
+            </div>
+
+
         </div>
     )
 }
