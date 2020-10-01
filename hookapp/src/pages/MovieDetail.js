@@ -16,8 +16,6 @@ function MovieDetail() {
         dispatch(getMovieDetail(id))
     }, [id])
 
-    // if (loading) return <p>Loading...</p>
-    // if (error) return <p>Error..</p>
 
     const handleFavorite = (event) => {
         let result = false;
@@ -30,6 +28,7 @@ function MovieDetail() {
             alert('Movie ini sudah di favoritekan sebelumnnya')
         } else {
             dispatch(addFavorite(event))
+            alert('berhasil menambahkan movie ke favorite')
         }
         
     }
