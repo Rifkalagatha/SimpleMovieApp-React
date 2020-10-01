@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/navbar'
 import "./style.css"
+import "./spinkit.min.css"
 import { Provider } from 'react-redux'
 import {
   BrowserRouter as Router,

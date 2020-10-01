@@ -34,7 +34,14 @@ function MovieDetail() {
         
     }
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <div class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+</div>
     if (error) return <p>Error....</p>
 
     return (

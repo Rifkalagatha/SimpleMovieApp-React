@@ -8,8 +8,6 @@ import { changeSearch, getMovies } from '../store/action'
 
 
 function Home() {
-    // const name = useSelector(state => state.name)
-    const data = useSelector(state => state)
     const movies = useSelector(state => state.movies.data)
     const search = useSelector(state => state.search.data)
     const loading = useSelector(state => state.movies.loading)
@@ -17,11 +15,8 @@ function Home() {
     const [temp, setTemp] = useState('')
     const dispatch = useDispatch()
 
-    console.log(movies, 'ini movie')
-    console.log(search)
-    console.log(data, 'ini data')
 
-    
+
     useEffect(() => {
         dispatch(getMovies(search))
     }, [search])
@@ -35,12 +30,19 @@ function Home() {
         dispatch(changeSearch(temp))
     }
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div>
     if (error) return <p>Error....</p>
 
     return (
         <div>
-            
+
             <form class='container mt-5 d-flex' onSubmit={handleSearch}>
                 <input class='form-control'
                     type='text'
