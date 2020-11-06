@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react'
 import MovieContainer from '../components/movieContainer'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeSearch, getMovies } from '../store/action'
-
-
-
-
+import { Table } from 'react-bootstrap'
 
 function Home() {
     const movies = useSelector(state => state.movies.data)
@@ -14,8 +11,6 @@ function Home() {
     const error = useSelector(state => state.movies.error)
     const [temp, setTemp] = useState('')
     const dispatch = useDispatch()
-
-
 
     useEffect(() => {
         dispatch(getMovies(search))
@@ -41,10 +36,9 @@ function Home() {
     if (error) return <p>Error....</p>
 
     return (
-        <div>
-
-            <form class='container mt-5 d-flex' onSubmit={handleSearch}>
-                <input class='form-control'
+        <>
+            <form className='container mt-5 d-flex' onSubmit={handleSearch}>
+                <input className='form-control'
                     type='text'
                     placeholder="Search"
                     aria-label="Search"
@@ -54,12 +48,23 @@ function Home() {
                 </input>
                 <button>search</button>
             </form>
-            <ul>
-                {Array.isArray(movies) ? movies.map((movie) => (
-                    <MovieContainer key={movie.id} movie={movie}></MovieContainer>
-                )) : <h1 class='mt-5 text-center'>Data tidak ditemukan</h1>}
-            </ul>
-        </div>
+            <Table className="m-5" style={{ width: '90%'}} striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>IMDb ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                    {Array.isArray(movies) ? movies.map((movie) => (
+                        <MovieContainer 
+                        key={movie.id} 
+                        movie={movie}
+                        ></MovieContainer>
+                    )) : <td className="text-center" colSpan="4">Movie Not Found</td> }
+            </Table>
+        </>
     )
 
 }

@@ -4,12 +4,21 @@ import {
     SET_MOVIE,
     SET_MOVIE_DETAIL,
     SET_LOADING,
-    SET_ERROR
+    SET_ERROR,
+    DELETE_FAVORITE
 } from './action-types'
 
 export function addFavorite(payload) {
     return {
         type: ADD_FAVORITE,
+        payload
+    }
+}
+
+export function deleteFavorite(payload) {
+    console.log(payload)
+    return {
+        type: DELETE_FAVORITE,
         payload
     }
 }
@@ -31,7 +40,7 @@ export function setMovie(payload) {
 export function getMovies(payload) {
     return (dispatch) => {
         dispatch(setLoading(true))
-        fetch('http://www.omdbapi.com/?apikey=2477839d&s=' + payload)
+        fetch('https://www.omdbapi.com/?apikey=2477839d&s=' + payload)
             .then((res) => res.json())
             .then((data) => {
                 dispatch(setMovie(data.Search))
@@ -56,10 +65,9 @@ export function getMovieDetail(payload) {
 
     return (dispatch) => {
         dispatch(setLoading(true))
-        fetch('http://www.omdbapi.com/?apikey=2477839d&i=' + payload)
+        fetch('https://www.omdbapi.com/?apikey=2477839d&i=' + payload)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 dispatch(setMovieDetail(data))
             })
             .catch((err) => {

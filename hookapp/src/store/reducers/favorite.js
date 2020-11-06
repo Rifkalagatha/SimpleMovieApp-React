@@ -1,5 +1,6 @@
 import {
     ADD_FAVORITE,
+    DELETE_FAVORITE
 } from '../action-types'
 
 const initialState = {
@@ -13,5 +14,14 @@ export default function movies (state = initialState, action) {
             data: state.data.concat(action.payload)
         }
     }
+
+    if (action.type === DELETE_FAVORITE) {
+        return {
+            ...state,
+            data: state.data.filter(item => item !== action.payload),
+            lastUpdated: Date.now() 
+        }
+    }
+
     return state
 }

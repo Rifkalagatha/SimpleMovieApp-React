@@ -1,1 +1,1 @@
-# react-challenge
+# Simple Movie App
